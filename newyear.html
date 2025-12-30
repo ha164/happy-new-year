@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy New Year POTATO</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: radial-gradient(circle, #1a2a3a, #000);
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Fairy Lights */
+        .lights {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .bulb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: gold;
+            box-shadow: 0 0 15px gold;
+            animation: blink 2s infinite alternate;
+        }
+
+        .bulb:nth-child(even) {
+            background: hotpink;
+            box-shadow: 0 0 15px hotpink;
+            animation-delay: 1s;
+        }
+
+        @keyframes blink {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+
+        /* Slides */
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+            padding-top: 22vh;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 5;
+        }
+
+        h1 {
+            font-family: "Times New Roman", Georgia, serif;
+            font-size: 3.2rem;
+            text-shadow: 0 0 20px gold;
+            letter-spacing: 1px;
+        }
+
+
+        p {
+           font-family: "Palatino Linotype", Georgia, serif;
+            font-size: 1.4rem;
+            max-width: 750px;
+            margin: 30px auto;
+            line-height: 1.8;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            background: gold;
+            color: black;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px gold;
+        }
+
+        /* Fireworks */
+        .firework {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: gold;
+            animation: explode 2s infinite ease-in-out;
+        }
+
+        @keyframes explode {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(5); opacity: 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Fairy Lights -->
+    <div class="lights">
+        <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+        <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+        <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    </div>
+
+    <!-- Fireworks -->
+    <div class="firework" style="top:30%; left:20%;"></div>
+    <div class="firework" style="top:60%; left:70%; animation-delay:1s;"></div>
+    <div class="firework" style="top:45%; left:50%; animation-delay:0.5s;"></div>
+
+    <!-- Slide 1 -->
+    <div class="slide active">
+        <h1>🎉 Happy New Year 🎉</h1>
+        <p>A brand new year, a brand new beginning.</p>
+        <button onclick="nextSlide()">Click Here</button>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+        <h1>✨ Welcome 2025 ✨</h1>
+        <p>May this year bring joy, peace, success, and endless smiles.</p>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+        <h1>🌟 Dear POTATO 🌟</h1>
+        <p>As this new year begins, I am officially renewing and resubscribing to our friendship no trials, no expiration, and no cancellations allowed. Thank you for being my constant, my laughter on difficult days, and my comfort on ordinary ones.You are not just a friend, you are a blessing. Thank you for being a constant source of happiness.</p>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+        <h1>💖 New Year Wishes 💖</h1>
+        <p>May all your dreams come true, your worries fade away, and your heart stay light and happy.</p>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+        <h1>🥂 Cheers to Us 🥂</h1>
+        <p>Here’s to more memories, laughter, and moments together in the coming year. Happy New Year, POTATO!</p>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide++;
+            if (currentSlide < slides.length) {
+                slides[currentSlide].classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>
